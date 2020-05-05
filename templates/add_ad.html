@@ -1,0 +1,142 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<section class="contact_section layout_padding-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="custom_heading-container">
+                <br><br><br><br><br><br>
+                <h2>
+                Add new ad
+                </h2><hr>
+            </div>
+          </div>  
+          <div class="layout_padding-top layout_padding2-bottom">
+            <div class="row">
+              <div class="col-md-7">
+                <form action="{{ url_for('ad.newAd')}}" method="post">
+                  {{ form.hidden_tag() }}
+                  <div class="contact_form-container">
+                    <div class="form-group">
+                    {{ form.transactionType.label(class="form-control-label") }}
+                    {% if form.transactionType.errors %}
+                        {{ form.transactionType(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.transactionType.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.transactionType(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                      <div class="form-group">
+                    {{ form.roomsNum.label(class="form-control-label") }}
+
+                    {% if form.roomsNum.errors %}
+                        {{ form.roomsNum(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.roomsNum.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.roomsNum(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.area.label(class="form-control-label") }}
+
+                    {% if form.area.errors %}
+                        {{ form.area(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.area.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.area(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.governorate.label(class="form-control-label") }}
+                    {% if form.governorate.errors %}
+                        {{ form.governorate(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.governorate.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.governorate(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.location.label(class="form-control-label") }}
+                    {% if form.location.errors %}
+                        {{ form.location(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.location.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.location(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.price.label(class="form-control-label") }}
+                    {% if form.price.errors %}
+                        {{ form.price(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.price.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.price(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.mobile.label(class="form-control-label") }}
+                    {% if form.mobile.errors %}
+                        {{ form.mobile(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.mobile.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.mobile(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.description.label(class="form-control-label") }}
+                    {% if form.description.errors %}
+                        {{ form.description(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.description.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.description(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                      <div class="mt-5">
+                        <button type="submit">
+                          Create
+                        </button>
+                      </div>
+                    </div>
+      
+                  </div>
+      
+                </form>
+              </div>
+                
+     {% endblock content %}
+ 
+      <!-- end contact section -->
+    </body>
+</html>

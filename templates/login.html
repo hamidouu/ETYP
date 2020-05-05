@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+{% block content %}
+<section class="contact_section layout_padding-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="custom_heading-container">
+                <br><br><br><br><br><br>
+              <h2>
+                Login
+              </h2><hr>
+            </div>
+            
+          </div>
+          <div class="layout_padding-top layout_padding2-bottom">
+            <div class="row">
+              <div class="col-md-7">
+                
+        
+                <form action="" method="POST">
+                  
+                {% with messages = get_flashed_messages(category_filter=["danger"]) %}
+                {% if messages %}
+                  {% for message in messages %}
+                  <div class="alert alert-danger" role="alert">
+                    <p>{{ message  }}</p>
+                  </div>
+                  {% endfor %}
+                {% endif %}
+              {% endwith %}
+                  {{ form.hidden_tag() }}
+                  <div class="contact_form-container">
+                    <div>
+                      <div class="form-group">
+                    {{ form.email.label(class="form-control-label") }}
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.password.label(class="form-control-label") }}
+                    {% if form.password.errors %}
+                        {{ form.password(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.password(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                      <div class="mt-5">
+                        <button type="submit">
+                          Login
+                        </button>
+                       
+                      </div>
+                      </form>
+                      <div>
+                        <form action="{{ url_for('auth.register') }}">
+                        <div class="mt-5">
+                          <button type="submit">
+                          Create an account
+                        </button>
+                      </div>
+                      </form>
+                      </div>
+                    </div>
+      
+                  </div>
+      
+                
+              </div>
+{% endblock content %}
+   </body>
+</html>
